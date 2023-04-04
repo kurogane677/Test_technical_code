@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+  </head>
+  <body>
+    <input
+      type="text"
+      name="angka"
+      id="angka"
+      placeholder="Input Angka"
+    /><br />
+    <button onclick="segitiga()" style="padding: 0.2em">
+      Generate segitiga
+    </button>
+    <button onclick="ganjil()" style="padding: 0.2em">
+      Generate bilangan ganjil
+    </button>
+    <button onclick="prima()" style="padding: 0.2em">
+      Generate bilangan prima
+    </button>
+
+    <div class="result">
+      <h1>Result :</h1>
+      <div class="textres" id="textres"></div>
+    </div>
+  </body>
+  <script>
+    const segitiga = () => {
+      let angka = document.getElementById("angka").value;
+      for (let i = 0; i < angka; i++) {
+        for (let j = 0; j < i; j++) {
+          let leng = angka.toString();
+          console.log(angka.toString().length);
+          for (let k = 0; k < leng.length; k++) {
+            console.log(i);
+          }
+
+          document.getElementById("textres").innerHTML += `${angka}`;
+        }
+        document.getElementById("textres").innerHTML += `<br/>`;
+      }
+      // console.log("segitga");
+    };
+
+    const ganjil = () => {
+      let angka = document.getElementById("angka").value;
+      let array = [];
+      // console.log(angka);
+      try {
+        for (let i = 0; i < angka; i++) {
+          if (i % 2 !== 0) {
+            array.push(i);
+          }
+        }
+        document.getElementById("textres").innerText = array;
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    const prima = () => {
+      let angka = document.getElementById("angka").value;
+      let array = [],
+        res = [];
+      for (let i = 0; i < angka; i++) {
+        for (let j = 0; j < i; j++) {
+          if (i % j !== 0) {
+            array.push(i);
+          }
+        }
+        document.getElementById("textres").innerText = array;
+      }
+      // console.log("prm");
+    };
+  </script>
+</html>
