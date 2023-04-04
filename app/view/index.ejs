@@ -61,16 +61,24 @@
 
     const prima = () => {
       let angka = document.getElementById("angka").value;
-      let array = [],
-        res = [];
-      for (let i = 0; i < angka; i++) {
-        for (let j = 0; j < i; j++) {
-          if (i % j !== 0) {
-            array.push(i);
+      let array = [];
+
+      for (var i = 2; i <= angka; i++) {
+        let prime = true;
+
+        for (let j = 2; j <= Math.sqrt(i); j++) {
+          if (i % j === 0) {
+            prime = false;
+            break;
           }
         }
-        document.getElementById("textres").innerText = array;
+        if (prime) {
+          array.push(i);
+        }
       }
+
+      // tampilkan array primes
+      document.getElementById("textres").innerText = array;
       // console.log("prm");
     };
   </script>
